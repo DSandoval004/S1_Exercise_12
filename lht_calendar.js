@@ -5,8 +5,8 @@
    Tutorial 10
    Tutorial Case
 
-   Author: 
-   Date:  
+   Author: Diego Sandoval
+   Date:  2/19/19
 
    Filename:   lht_calendar.js  
 
@@ -29,4 +29,3 @@
       Writes the daily rows in the calendar table, highlighting calDate
 	
 */
-

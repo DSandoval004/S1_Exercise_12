@@ -37,6 +37,7 @@ document.getElementById('calendar').innerHTML = createCalendar(thisDay);
 function createCalendar(calDate) {
       var calendarHTML = "<table id='calendar_table'>";
       calendarHTML += calCaption(calDate);
+      calendarHTML += calWeekdayRow();
       calendarHTML += "</table>";
       return calendarHTML;
 };
@@ -52,3 +53,15 @@ function calCaption(calDate) {
       // return "<caption>" + monthName[thisMonth] + " " + thisYear + "</caption>";
       return `<caption> ${monthName[thisMonth]} ${thisYear}</caption>`;
 }
+/* Function to write a table row of weekday abbreviations */
+function calWeekdayRow() {
+      // Array of weekday abbreviations
+      var dayName = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+      var rowHTML = "<tr>";
+      // Loop through the dayName array 
+      for (var i = 0; i < dayName.length; i++) {
+            rowHTML += "<th clas='calendar_weekdays'>" + dayName[i] + "</th>";
+      };
+      rowHTML += "</tr>";
+      return rowHTML;
+};

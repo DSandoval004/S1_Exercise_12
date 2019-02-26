@@ -26,13 +26,16 @@
 
    calDays(calDate)
       Writes the daily rows in the calendar table, highlighting calDate
-	
 */
-/* Set the date displayed in the calendar */
+/* 
+DDOES: Set the date displayed in the calendar 
+*/
 var thisDay = new Date();
-// Write the calendar to the element with the id "calendar" 
+// DDOES: Write the calendar to the element with the id "calendar" 
 document.getElementById('calendar').innerHTML = createCalendar(thisDay);
-/* Function to generate the calendar table */
+/* 
+DFUNC: Function to generate the calendar table 
+*/
 function createCalendar(calDate) {
       var calendarHTML = "<table id='calendar_table'>";
       calendarHTML += calCaption(calDate);
@@ -41,21 +44,25 @@ function createCalendar(calDate) {
       calendarHTML += "</table>";
       return calendarHTML;
 };
-/* Function to write the calendar caption */
+/* 
+DFUNC: Function to write the calendar caption 
+*/
 function calCaption(calDate) {
-      // monthName array contains the list of month names
+      // DVARA: monthName array contains the list of month names
       var monthName = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-      // Determine the current month 
+      // DVARN: Determine the current month 
       var thisMonth = calDate.getMonth();
-      // Determine the current year 
+      // DVARN: Determine the current year 
       var thisYear = calDate.getFullYear();
-      // Write the caption
-      // return "<caption>" + monthName[thisMonth] + " " + thisYear + "</caption>";
+      // DDOES: Write the caption
+      // OGC: return "<caption>" + monthName[thisMonth] + " " + thisYear + "</caption>";
       return `<caption> ${monthName[thisMonth]} ${thisYear}</caption>`;
 }
-/* Function to write a table row of weekday abbreviations */
+/* 
+DFUNC: Function to write a table row of weekday abbreviations 
+*/
 function calWeekdayRow() {
-      // Array of weekday abbreviations
+      // DVARL: Array of weekday abbreviations
       var dayName = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
       var rowHTML = "<tr>";
       // Loop through the dayName array 
@@ -98,15 +105,21 @@ function calDays(calDate) {
       for (var i = 1; i <= totalDays; i++) {
             day.setDate(i);
             weekDay = day.getDay();
-            if (weekDay === 0) htmlCode += "<tr>";
+            // OGC: if (weekDay === 0) htmlCode += "<tr>";
+            if (weekDay === 0) {
+                  htmlCode += "<tr>"
+            };
             if (i === highlightDay) {
-                  // htmlCode += "<td class='calendar_dates' id='calendar_today'>" + i + dayEvent[i] + "</td>";
+                  // OGC: htmlCode += "<td class='calendar_dates' id='calendar_today'>" + i + dayEvent[i] + "</td>";
                   htmlCode += `<td class='calendar_dates' id='calendar_today'> ${i} ${dayEvent[i]} </td>`;
             } else {
-                  // htmlCode += "<td class='calendar_dates'>" + i + dayEvent[i] + "</td>";
+                  // OGC: htmlCode += "<td class='calendar_dates'>" + i + dayEvent[i] + "</td>";
                   htmlCode += `<td class='calendar_dates'> ${i} ${dayEvent[i]} </td>`;
-            }
-            if (weekDay === 6) htmlCode += "</tr>";
+            };
+            // OGC: if (weekDay === 6) htmlCode += "</tr>";
+            if (weekDay === 6) {
+                  htmlCode += "</tr>"
+            };
       }
       return htmlCode;
 }
